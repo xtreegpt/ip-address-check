@@ -3,7 +3,6 @@
 #Set ip file and last ip
 
 IPFILE=".lan_ip.txt"
-LAST_IP="-.-.-.-"
 
 # Retrieve the current WAN IP
 LAN_IP=$(ip address show wlan0 |grep -m1 inet | awk '{print $2}' |grep -oE -m1 '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
@@ -13,7 +12,7 @@ LAN_IP=$(ip address show wlan0 |grep -m1 inet | awk '{print $2}' |grep -oE -m1 '
 
 if ! [[ -f "$IPFILE" ]]
         then
-          echo "$LAST_IP" > $IPFILE
+          touch $IPFILE
 fi
 
 LAST_IP=$(cat "$IPFILE")
