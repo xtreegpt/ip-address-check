@@ -1,11 +1,15 @@
 #!/bin/bash
 
+#Get active wireless adapter
+WLAN=$( ip -br a |grep wl |grep -i up |awk '{print $1}' )
+#printf "\n active wireless nic = $WLAN\n"
+
 #Set ip file and last ip
 
 IPFILE=".lan_ip.txt"
 
 # Retrieve the current WAN IP
-LAN_IP=$(ip address show wlan0 |grep -m1 inet | awk '{print $2}' |grep -oE -m1 '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
+LAN_IP=$(ip address show $WLAN |grep -m1 inet | awk '{print $2}' |grep -oE -m1 '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
 
 #echo "Current LAN IP  is: $LAN_IP"
 
