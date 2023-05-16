@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Get active wireless adapter
-WLAN=$( ip -br a |grep wl |grep -i up |awk '{print $1}' )
+WLAN=$( ip -br a |grep ^wl |grep -i up |awk '{print $1}' )
 #printf "\n active wireless nic = $WLAN\n"
 
 #Set ip file and last ip
