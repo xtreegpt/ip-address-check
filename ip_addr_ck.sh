@@ -32,7 +32,7 @@ if [ "$LAST_IP" != "$LAN_IP" ]; then
 
 #lets send an email using a SMTP Service with new IP
 
-                echo "monpizeroW IP address is $LAN_IP" |mail -s "monpizeroW LanIP" gtreanto@gmail.com
+                echo "$HOSTNAME IP address is $LAN_IP" |mail -s "$HOSTNAME LanIP" gtreanto@gmail.com
 
 #       else
 #               echo "LAN IP Still the same as $LAN_IP."
